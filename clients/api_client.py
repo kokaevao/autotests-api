@@ -1,4 +1,5 @@
 from httpx import Client, URL, QueryParams, Response
+from httpx._types import RequestData, RequestFiles, Any
 
 
 class ApiClient:
