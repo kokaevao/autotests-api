@@ -7,6 +7,6 @@ payload = {
   "firstName": "string",
   "middleName": "string"
 }
-response = httpx.post("http://localhost:8000/api/v1/users", json=payload)
+response = httpx.post("http://localhost:8001/api/v1/users", json=payload)
 print(response.status_code)
 print(response.json())

@@ -42,7 +42,7 @@ course_default_model = CourseSchema(
     description="Playwright",
     previewFile=FileSchema(
         id="file_id",
-        url="https://localhost:8000",
+        url="https://localhost:8001",
         filename="file.png",
         directory="courses",
     ),
@@ -65,7 +65,7 @@ course_dict = {
     "description": "Playwright",
     "previewFile": {
         "id": "file_id",
-        "url": "https://localhost:8000",
+        "url": "https://localhost:8001",
         "filename": "file.png",
         "directory": "courses"
     },
@@ -91,7 +91,7 @@ course_json = """
     "description": "Playwright",
     "previewFile": {
         "id": "file_id",
-        "url": "https://localhost:8000",
+        "url": "https://localhost:8001",
         "filename": "file.png",
         "directory": "courses"
     },
