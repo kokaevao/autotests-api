@@ -4,7 +4,10 @@ from pydantic import BaseModel, EmailStr, Field
 
 
 class UserSchema(BaseModel):
-    id: int = Field(gt=0)
+    """
+    Описание структуры пользователя
+    """
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     email: EmailStr = "user@example.com"
     last_name: str = Field(alias="lastName")
     first_name: str = Field(alias="firstName")
@@ -12,6 +15,9 @@ class UserSchema(BaseModel):
 
 
 class CreateUserRequestSchema(BaseModel):
+    """
+    Описание структуры запроса создание пользователя
+    """
     email: EmailStr = "user@example.com"
     password: str = Field(
       min_length=8, max_length=32, pattern=r"^[A-Za-z0-9@#$%^&+=!]+$"
@@ -22,6 +28,9 @@ class CreateUserRequestSchema(BaseModel):
 
 
 class CreateUserResponseSchema(BaseModel):
+    """
+    Описание структуры ответа создание пользователя
+    """
     user: UserSchema
 
 

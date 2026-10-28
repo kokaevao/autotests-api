@@ -1,12 +1,14 @@
 
-from clients.courses.courses_client import get_courses_client, CreateCoursesRequestDict
-from clients.exercises.exercises_client import CrateExerciseRequestType, ExercisesClient, get_exercise_client
+from clients.courses.courses_client import get_courses_client
+from clients.exercises.exercises_client import  ExercisesClient, get_exercise_client
 from clients.files.files_client import get_files_client
 from clients.files.files_schema import CreateFileRequestSchema
 from clients.private_http_builder import AuthenticationUserSchema
 from clients.users.public_users_client import get_public_users_client
 from clients.users.users_schema import CreateUserRequestSchema
 from tools.fakers import get_random_email
+from clients.courses.courses_schema import CreateCoursesRequestSchema
+from clients.exercises.exercises_schema import CrateExerciseRequestSchema
 
 # Инициализируем клиент PublicUsersClient
 public_users_client = get_public_users_client()
@@ -40,7 +42,7 @@ create_file_request = CreateFileRequestSchema(
 create_file_response = files_client.create_file(create_file_request)
 print('Create file data:', create_file_response)
 
-create_course_request = CreateCoursesRequestDict(
+create_course_request = CreateCoursesRequestSchema(
     title="Python",
     maxScore=100,
     minScore=10,
@@ -52,9 +54,9 @@ create_course_request = CreateCoursesRequestDict(
 create_course_response = courses_client.create_course(create_course_request)
 print('Create course data:', create_course_response)
 
-create_exercise_request = CrateExerciseRequestType(
+create_exercise_request = CrateExerciseRequestSchema(
     title="Helping a teammate",
-    courseId=create_course_response['course']['id'],
+    courseId=create_course_response.course.id,
     maxScore=101,
     minScore=15,
     orderIndex=2,
