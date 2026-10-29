@@ -51,13 +51,13 @@ class GetExercisesResponseSchema(BaseModel):
     """
     Описание структуры ответа получения упражнений.
     """
-    exercises: ExerciseSchema
+    exercises: list[ExerciseSchema]
 
 class GetExerciseResponseSchema(BaseModel):
     """
     Описание структуры ответа получения упражнений.
     """
-    exercises: ExerciseSchema
+    exercise: ExerciseSchema
 
 
 class CreateExerciseResponseSchema(BaseModel):

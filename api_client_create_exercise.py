@@ -44,24 +44,24 @@ print('Create file data:', create_file_response)
 
 create_course_request = CreateCoursesRequestSchema(
     title="Python",
-    maxScore=100,
-    minScore=10,
+    max_score=100,
+    min_score=10,
     description="Python API Course",
-    estimatedTime="2 weeks",
-    previewFileId=create_file_response.file.id,
-    createdByUserId=create_user_response.user.id
+    estimated_time="2 weeks",
+    preview_file_id=create_file_response.file.id,
+    created_by_user_id=create_user_response.user.id
 )
 create_course_response = courses_client.create_course(create_course_request)
 print('Create course data:', create_course_response)
 
 create_exercise_request = CrateExerciseRequestSchema(
     title="Helping a teammate",
-    courseId=create_course_response.course.id,
-    maxScore=101,
-    minScore=15,
-    orderIndex=2,
+    course_id=create_course_response.course.id,
+    max_score=101,
+    min_score=15,
+    order_index=2,
     description="Code review",
-    estimatedTime="2 days",
+    estimated_time="2 days",
 )
 create_exercise_response = exercises_client.create_exercise(create_exercise_request)
 print('Create exercise data:', create_exercise_response)
