@@ -16,3 +16,6 @@ def validate_json_schema(instance: Any, schema: dict) -> None:
         instance=instance,
         format_checker=Draft202012Validator.FORMAT_CHECKER
     )
+
+
+
