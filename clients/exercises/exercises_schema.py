@@ -34,7 +34,7 @@ class GetExercisesQuerySchema(BaseModel):
 
 
 
-class CrateExerciseRequestSchema(BaseModel):
+class CreateExerciseRequestSchema(BaseModel):
     """
     Описание структуры запроса на создание упражений.
     """

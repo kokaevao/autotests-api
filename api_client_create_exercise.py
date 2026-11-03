@@ -6,7 +6,7 @@ from clients.private_http_builder import AuthenticationUserSchema
 from clients.users.public_users_client import get_public_users_client
 from clients.users.users_schema import CreateUserRequestSchema
 from clients.courses.courses_schema import CreateCoursesRequestSchema
-from clients.exercises.exercises_schema import CrateExerciseRequestSchema
+from clients.exercises.exercises_schema import CreateExerciseRequestSchema
 
 # Инициализируем клиент PublicUsersClient
 public_users_client = get_public_users_client()
@@ -37,6 +37,6 @@ create_course_request = CreateCoursesRequestSchema(
 create_course_response = courses_client.create_course(create_course_request)
 print('Create course data:', create_course_response)
 
-create_exercise_request = CrateExerciseRequestSchema(course_id=create_course_response.course.id)
+create_exercise_request = CreateExerciseRequestSchema(course_id=create_course_response.course.id)
 create_exercise_response = exercises_client.create_exercise(create_exercise_request)
 print('Create exercise data:', create_exercise_response)

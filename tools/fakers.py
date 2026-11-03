@@ -73,7 +73,7 @@ class Fake:
 
         :return: Случайное отчество.
         """
-        return self.faker.first_name()
+        return self.faker.middle_name()
 
     def estimated_time(self) -> int:
         """
