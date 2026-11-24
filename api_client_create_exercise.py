@@ -5,7 +5,7 @@ from clients.files.files_schema import CreateFileRequestSchema
 from clients.private_http_builder import AuthenticationUserSchema
 from clients.users.public_users_client import get_public_users_client
 from clients.users.users_schema import CreateUserRequestSchema
-from clients.courses.courses_schema import CreateCoursesRequestSchema
+from clients.courses.courses_schema import CreateCourseRequestSchema
 from clients.exercises.exercises_schema import CreateExerciseRequestSchema
 
 # Инициализируем клиент PublicUsersClient
@@ -30,7 +30,7 @@ create_file_request = CreateFileRequestSchema(upload_file='./testdata/files/imag
 create_file_response = files_client.create_file(create_file_request)
 print('Create file data:', create_file_response)
 
-create_course_request = CreateCoursesRequestSchema(
+create_course_request = CreateCourseRequestSchema(
     preview_file_id=create_file_response.file.id,
     created_by_user_id=create_user_response.user.id
 )
